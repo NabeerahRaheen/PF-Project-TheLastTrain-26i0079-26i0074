@@ -42,5 +42,12 @@ void renderDashboard(int playerFloor, int playerRoom, int energy, int time, int 
             cout << inventory[j] << " ";
         }
     }
+    cout << endl;
+    
+
+
+
+
+
 }
 
