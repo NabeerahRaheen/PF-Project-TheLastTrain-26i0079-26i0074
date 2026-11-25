@@ -43,9 +43,9 @@ void renderDashboard(int playerFloor, int playerRoom, int energy, int time, int 
         }
     }
     cout << endl;
-    
-
-
+}
+void renderRoomDetails(int floor, int room, const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM], int entityCount)
+{
 
 
 
