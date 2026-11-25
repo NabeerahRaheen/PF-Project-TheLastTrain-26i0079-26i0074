@@ -46,8 +46,40 @@ void renderDashboard(int playerFloor, int playerRoom, int energy, int time, int 
 }
 void renderRoomDetails(int floor, int room, const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM], int entityCount)
 {
+    int arr_floor = floor-1;
+    int arr_room = room-1;
+    
+    if(arr_floor<0 or arr_floor>(NUM_FLOORS-1))
+     {
+        cout<<"Invalid Floor"<<endl;   
+        return;
+     }
+    if(arr_room<0 or arr_room>ROOMS_PER_FLOOR-1)
+    {
+        cout<<"Invalid Room"<<endl;   
+        return;
+     }
+    cout<<"Player is in the location: F"<<floor<<"-R"<<room<<endl;
 
 
+ if (entityCount==0)
+   {
+        cout<<"No Entities in this room"<<endl;
+   }
+   else
+   {
+       cout<<"The items in this room are: ";
+       for(int i=0;i<entityCount;i++)
+       {
+        cout<<roomEntities[arr_floor][arr_room][i]<<" ";
+       }
+       cout<<endl;      
+   }
+   void renderRoomDetails(int floor, int room, const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM], int entityCount)
+   {
 
-}
+
+    
+   }
+
 
