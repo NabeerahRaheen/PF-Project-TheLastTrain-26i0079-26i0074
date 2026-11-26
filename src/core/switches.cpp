@@ -1,5 +1,6 @@
 #include "switches.h"
 #include "util.h"
+#include "physics.h"
 #include <iostream>
 using namespace std;
 
@@ -31,9 +32,13 @@ using namespace std;
         {
             lift2allowed = false;
         }
-
         return lift2allowed;
-    
+    }
+
+    bool unlockFloor3Door(const char inventory[MAX_INVENTORY_CAPACITY], int inventoryCount)
+    {
+        bool canOpen = hasItem(inventory, inventoryCount, ENT_MASTER_KEY );
+        return canOpen;
     }
 
 
