@@ -2,6 +2,7 @@
 
 #include "viewer_iface.h"
 #include "util.h"
+#include "config.h"
 #include <iostream>
 using namespace std;
 
@@ -75,11 +76,26 @@ void renderRoomDetails(int floor, int room, const char roomEntities[NUM_FLOORS][
        }
        cout<<endl;      
    }
-   void renderRoomDetails(int floor, int room, const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM], int entityCount)
-   {
-
-
-    
-   }
-
-
+}   
+void renderAsciiBuilding(int playerFloor, int playerRoom)
+{
+    for(int j=5; j>0;j--)
+    {
+        for(int k=1; k<5; k++)
+        {
+           cout<<"F"<<j<<"-R"<<k;
+           if(playerFloor == j && playerRoom == k )
+           {
+             cout<<"[You]";
+           }
+           else
+           {
+             cout<<"     ";
+           }
+           cout<<"\t|\t";
+  
+        }
+        cout<<"\n"<<endl;
+    }
+ 
+}
