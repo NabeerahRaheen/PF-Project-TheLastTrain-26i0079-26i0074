@@ -14,9 +14,26 @@ using namespace std;
           { 
             allowed = true;
           }
-  
         return allowed;
+    }
 
+    bool canUseLift2(int fromFloor, int toFloor, bool lift2Operational, int emergencyTripsLeft)
+    {
+        bool lift2allowed = false;
+        if ((fromFloor == 2 || fromFloor == 4 ||fromFloor == 5)&&(toFloor == 2 || toFloor == 4 || toFloor == 5))
+        {
+            if(lift2Operational == true ||emergencyTripsLeft >= 1)
+                {
+                    lift2allowed = true;
+                }
+        }
+        if(fromFloor == toFloor)
+        {
+            lift2allowed = false;
+        }
+
+        return lift2allowed;
+    
     }
 
 
@@ -25,5 +42,6 @@ using namespace std;
 
 
 
-}
+
+
 // Door lock mechanics, lifts, and cabinet verification without structures
