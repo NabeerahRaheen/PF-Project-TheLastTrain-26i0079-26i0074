@@ -26,7 +26,7 @@ void renderObjectivesChecklist(const bool objectives[NUM_OBJECTIVES])
 void renderDashboard(int playerFloor, int playerRoom, int energy, int time, int score, const char inventory[MAX_INVENTORY_CAPACITY], int inventoryCount, int emergencyTripsLeft)
 {
     printHeader ("Status");
-    cout << "Location(Floor-Room) F: "<< playerFloor << " -R " << playerRoom << endl;
+    cout << "Location(Floor-Room) F"<< playerFloor << " -R" << playerRoom << endl;
     cout << "Energy: " << energy << " / " << MAX_ENERGY << endl;
     cout << "Time: " << time << " / " << MAX_TIME << endl;
     cout << "Score: " << score << endl;
@@ -63,39 +63,40 @@ void renderRoomDetails(int floor, int room, const char roomEntities[NUM_FLOORS][
     cout<<"Player is in the location: F"<<floor<<"-R"<<room<<endl;
 
 
- if (entityCount==0)
-   {
-        cout<<"No Entities in this room"<<endl;
-   }
-   else
-   {
-       cout<<"The items in this room are: ";
-       for(int i=0;i<entityCount;i++)
-       {
-        cout<<roomEntities[arr_floor][arr_room][i]<<" ";
-       }
-       cout<<endl;      
-   }
-}   
-void renderAsciiBuilding(int playerFloor, int playerRoom)
-{
-    for(int j=5; j>0;j--)
+    if (entityCount==0)
     {
-        for(int k=1; k<5; k++)
-        {
-           cout<<"F"<<j<<"-R"<<k;
-           if(playerFloor == j && playerRoom == k )
-           {
-             cout<<"[You]";
-           }
-           else
-           {
-             cout<<"     ";
-           }
-           cout<<"\t|\t";
-  
-        }
-        cout<<"\n"<<endl;
+            cout<<"No Entities in this room"<<endl;
     }
- 
-}
+    else
+    {
+        cout<<"The items in this room are: ";
+        for(int i=0;i<entityCount;i++)
+        {
+            cout<<roomEntities[arr_floor][arr_room][i]<<" ";
+        }
+        cout<<endl;      
+    }
+    }   
+    void renderAsciiBuilding(int playerFloor, int playerRoom)
+    {
+        printHeader("Building Map");
+        for(int j=NUM_FLOORS; j>0;j--)
+        {
+            for(int k=1; k<ROOMS_PER_FLOOR+1; k++)
+            {
+            cout<<"F"<<j<<"-R"<<k;
+            if(playerFloor == j && playerRoom == k )
+            {
+                cout<<"[You]";
+            }
+            else
+            {
+                cout<<"     ";
+            }
+            cout<<"\t|\t";
+    
+            }
+            cout<<"\n"<<endl;
+        }
+    
+    }
