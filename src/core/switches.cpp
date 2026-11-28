@@ -41,6 +41,64 @@ using namespace std;
         return canOpen;
     }
 
+    bool installFuseControlPanel(char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount,
+        bool objectives[NUM_OBJECTIVES], int& score)
+    {
+        bool hasFuse = hasItem(inventory, inventoryCount, ENT_FUSE  );
+        if (hasFuse == false)
+        {
+            return false;
+        }
+        else
+        {
+            bool fuseFound = removeItem(inventory, inventoryCount, ENT_FUSE);
+            applyScoreDelta(score, SCORE_INSTALL_FUSE);
+            if(fuseFound == true)
+            {
+                objectives[OBJ_FUSE_INSTALLED]=fuseFound;        
+            }
+  
+            bool hasPass =  hasItem(inventory, inventoryCount, ENT_LIFT_PASS); 
+            if (hasPass == true)
+            {
+                objectives[OBJ_LIFT2_ACTIVE]=hasPass;  
+            }
+            return true;
+        }
+    }
+
+    bool verifyCabinetCode(const char* enteredCode, const bool objectives[NUM_OBJECTIVES])
+    {
+
+        bool correctCode = stringEquals(enteredCode, "427");
+        if (correctCode == true)
+          {
+             if (objectives[OBJ_CLUE_4] == true)
+              { 
+                if (objectives[OBJ_CLUE_2] == true)
+                   {
+                     if (objectives[OBJ_CLUE_7] == true)
+                            {
+                               return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                    }
+                    else 
+                    {
+                       return false; 
+                    }
+              }
+             else
+            {
+                return false;
+            }
+          }
+          return true;
+    }
+
 
 
 
