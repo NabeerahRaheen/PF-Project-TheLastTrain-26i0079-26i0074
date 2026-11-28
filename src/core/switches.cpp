@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+// Door lock mechanics, lifts, and cabinet verification without structures
+
     bool canUseLift1(int fromFloor, int toFloor)
     {
         bool allowed = false;
@@ -96,15 +98,6 @@ using namespace std;
                 return false;
             }
           }
-          return true;
+          return false;
     }
 
-
-
-
-
-
-
-
-
-// Door lock mechanics, lifts, and cabinet verification without structures
